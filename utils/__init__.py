@@ -26,9 +26,9 @@ def low_freq_mutate_np( amp_src, amp_trg, L=0.1 ):
     c_h = np.floor(h/2.0).astype(int)
     c_w = np.floor(w/2.0).astype(int)
 
-    h1 = c_h-b
+    h1 = max(c_h-b, 0)
     h2 = c_h+b+1
-    w1 = c_w-b
+    w1 = max(c_w-b, 0)
     w2 = c_w+b+1
 
     a_src[:,h1:h2,w1:w2] = a_trg[:,h1:h2,w1:w2]
